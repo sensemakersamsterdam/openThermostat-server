@@ -1,0 +1,38 @@
+readSerialTemp
+--------------
+
+INTRO
+=====
+This is a small python script that reads the serial output of arduino over USB. Assuming OpenThermostaat 
+v1.0 is connected to the arduino, the temperatures are read, converted to Celsius and stored in a mySQL 
+database. This code needs the Arduino to run the software for the temperature sensor.
+
+
+PREREQUISITES
+=============
+1) Python 2.6.x [https://www.python.org/download/releases/2.6/]
+
+2) pyserial-2.6 [https://www.pyserial.sourceforge.net/]
+
+3) MySQL-python-1.2.3 [https://www.pypi.python.org/pypi/MySQL-python/1.2.3]
+
+4) setuptools, needed for MySQL-python [https://pypi.python.org/pypi/setuptools/1.1.6]
+
+5) configparser, needed for reading configuration files  [https://pypi.python.org/pypi/configparser/3.2.0r3] 
+the code looks for a file named simple.ini in the current directory. The file has 2 sections; 
+[device]
+device file in *Nix, baud rate
+
+[database]
+location, port #, user & password, database name
+
+6) last but not least, a running mysql daemon.
+
+
+
+TESTING
+=======
+
+Tested on slackware 13.1. By default on slackware mysql, is owned and run by the user mysql. If you wish
+to keep it that way, give mysql user a password and add /bin/bash as his shell.
+
